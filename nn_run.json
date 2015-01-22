@@ -1,0 +1,40 @@
+{
+  "hadoop": {
+    "distribution": "hdp",
+    "distribution_version": "2.1",
+    "hadoop_env": {
+      "JAVA_HOME":"/vagrant/jdk1.7.0_51/",
+      "HBASE_MANAGES_ZK": 
+    },
+    "core_site": {
+      "fs.defaultFS":"hdfs://0.0.0.0"
+    },
+    "hdfs_site": {
+      "dfs.datanode.max.transfer.threads": "4096"
+    },
+    "yarn_env": {
+      "JAVA_HOME": "/vagrant/jdk1.7.0_51/"
+    },
+    "yarn_site": {
+      "yarn.resourcemanager.hostname": "0.0.0.0"
+    }
+  },
+  "hbase": {
+    "hbase_env": {
+      "JAVA_HOME": "/vagrant/jdk1.7.0_51/",
+      "HBASE_MANAGES_ZK": "false"
+    },
+    "hbase_site": {
+      "hbase.rootdir": "hdfs://nn:8020/hbase/",
+      "hbase.zookeeper.quorum": "nn",
+      "hbase.cluster.distributed": "true"
+    }
+  },
+    "run_list": [
+    "recipe[hadoop::zookeeper]",
+    "recipe[hadoop::zookeeper_server]",
+    "recipe[hadoop::hadoop_hdfs_namenode]",
+    "recipe[hadoop::hadoop_yarn_resourcemanager]",
+    "recipe[hadoop::hbase_master]"
+	]
+}

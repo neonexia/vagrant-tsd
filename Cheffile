@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+#^syntax detection
+
+site 'http://community.opscode.com/api/v1'
+site "https://supermarket.getchef.com/api/v1"
+
+# cookbook 'hadoop_cookbook',
+#     :github => 'caskdata/hadoop_cookbook'
+
+# cookbook 'hadoop_wrapper_cookbook',
+#     :github => 'caskdata/hadoop_wrapper_cookbook'
+cookbook 'hadoop', '~> 1.9.2'
+
+cookbook 'npm', '~> 0.1.2'
+
+cookbook 'mongodb', '~> 0.16.2'
+
+cookbook 'nodejs', '~> 2.2.0'
+
